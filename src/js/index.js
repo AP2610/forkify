@@ -9,10 +9,10 @@ import * as likesView from './views/likesView';
 
 import {elements, displayLoader, clearLoader} from './views/base';
 
-// Create a state object which will hold the current state of the app at any given time.
+// State object which will hold the current state of the app at any given time.
 const state = {};
 
-// Create SEARCH CONTROLLER.
+// SEARCH CONTROLLER.
 const searchController = async () => {
     // 1. Get the query from the view
     state.currentQuery = searchView.getInput();
@@ -31,7 +31,6 @@ const searchController = async () => {
             await state.currentSearch.getSearch();
 
             // 5. Render results on UI. Only after we recieve the results from API. 
-            // console.log("This is the current state: ", state);
             clearLoader();
             searchView.displayItems(state.currentSearch.result);
         } catch(error) {
@@ -73,7 +72,7 @@ const recipeController = async () => {
     }
 };
 
-// Create the SHOPPING LIST CONTROLLER
+// SHOPPING LIST CONTROLLER
 const shoppingListController = () => {
     // Create a new list if there isn't one already
     if (!state.currentShoppingList) {
